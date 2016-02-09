@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<title>Sortowanie</title>
+<meta charset="utf-8">
+<style>
+  html, body {
+    color: #000;
+    background: #efe0d2;
+    margin: 0; padding: 0;
+  }
+  #form {
+    padding: 1em 2em;
+    background: #fff;
+  }
+  #num {
+    width: 3em;
+  }
+  label, select, #go {
+    margin: 0 1em;
+  }
+  #status {
+    margin: 1em;
+  }
+  #container {
+    position: relative;
+    margin: 1em;
+  }
+  #container div {
+    position: absolute;
+    width: 100%;
+  }
+</style>
+
+<form id=form>
+  <label for=num>
+    Liczba elementów:
+    <input type=number id=num name=num min=2 max=20 value=5 step=1>
+  </label>
+  <select id=algo name=algo required>
+    <option value="">— wybierz algorytm —
+  </select>
+  <input type=submit value="Rozpocznij demonstrację" id=go>
+  <p id=status>&nbsp;</p>
+</form>
+<div id=container></div>
+<script src="sorting.js"></script>
+<script src="algorytmy.js"></script>
