@@ -275,6 +275,13 @@ var zarejestrujAlgorytm = (function() {
 
 		case 'swap':
 			var start = catYPosition(op.i);
+
+			if (op.i == op.j && t >= 0.5) {
+				a.style.top = px(start);
+				a.style.left = '0';
+				return 0.5;
+			}
+
 			var end = catYPosition(op.j);
 
 			if (t >= 1) {
@@ -284,6 +291,10 @@ var zarejestrujAlgorytm = (function() {
 				arr[op.i] = b;
 				arr[op.j] = a;
 				return 1;
+			}
+
+			if (op.i == op.j) {
+				t *= 2;
 			}
 
 			var x = 4 * t * (1 - t);
