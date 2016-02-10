@@ -397,8 +397,9 @@ var zarejestrujAlgorytm = (function() {
 
 		// Prepare the array
 		var arr = [];
+		var maxLength = Math.min(20, Math.max(5, num));
 		for (var i = 0; i < num; ++i) {
-			var cat = makeCat((Math.random() * 10) | 0, i);
+			var cat = makeCat((Math.random() * maxLength) | 0, i);
 			arr.push(cat);
 			cont.appendChild(cat);
 		}
