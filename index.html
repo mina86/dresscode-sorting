@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>DressCode: Sortowanie</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+<header>
+<h1 class="title">DressCode: Sortowanie</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#zanim-przystąpisz-do-rozwiązywania">Zanim przystąpisz do rozwiązywania</a></li>
+<li><a href="#zadanie">Zadanie</a></li>
+<li><a href="#szczegóły-interfejsu">Szczegóły interfejsu</a></li>
+<li><a href="#sortowanie-przez-wybór-i-wstawianie">Sortowanie przez wybór i wstawianie</a><ul>
+<li><a href="#sortowanie-przez-wybór">Sortowanie przez wybór</a></li>
+<li><a href="#sortowanie-przez-wstawianie">Sortowanie przez wstawianie</a></li>
+</ul></li>
+<li><a href="#sortowanie-bąbelkowe">Sortowanie bąbelkowe</a><ul>
+<li><a href="#optymalizacje">Optymalizacje</a></li>
+</ul></li>
+<li><a href="#wysyłanie-rozwiązań">Wysyłanie rozwiązań</a></li>
+<li><a href="#dla-ambitnych">Dla ambitnych</a></li>
+</ul>
+</nav>
+<p>Start: XXX</p>
+<p>Termin nadsyłania rozwiązań: XXX</p>
+<p>Jednym z najważniejszych problemów w informatyce jest sortowanie. Dla przykładu, gdy wyszukujesz informacje w Google, wyszukiwarka musi najpierw ocenić możliwe wyniki, a potem uporządkować je począwszy od tego, który najlepiej pasuje do zadanych kryteriów wyszukiwania.</p>
+<p>Twoim zadaniem będzie zaimplementować jeden z prostszych algorytmów sortowania.</p>
+<h2 id="zanim-przystąpisz-do-rozwiązywania"><a href="#zanim-przystąpisz-do-rozwiązywania">Zanim przystąpisz do rozwiązywania</a></h2>
+<p>Jeżeli jeszcze tego nie zrobiłaś, na stronie <a href="https://events.withgoogle.com/dresscode/">DressCode</a> kliknij przycisk „<a href="https://events.withgoogle.com/dresscode/registrations/new/">Zarejestruj się</a>” i wypełnij krótki formularz rejestracyjny. Następnie <a href="https://docs.google.com/a/google.com/forms/d/1jXBF3TUIn83r6SgXRT3dLofvoAJCcSf5tZev6TZfBn0/viewform">powiedz nam coś o sobie</a> w krótkiej anonimowej ankiecie. Ankieta posłuży nam do jak najlepszego dostosowania formy DressCode do Twoich preferencji.</p>
+<h2 id="zadanie"><a href="#zadanie">Zadanie</a></h2>
+<p>Pobierz na swój komputer plik <a href="https://github.com/mina86/dresscode-sorting/raw/master/sortowanie.html"><code>sortowanie.html</code></a>. Jeżeli otworzysz ten plik w przeglądarce (np. Chrome, Firefox, Safari, Internet Explorer), zobaczysz prosty formularz, jednak pole „— wybierz algorytm —” nie posiada żadnych opcji do wyboru przez co próba rozpoczęcia demonstracji kończy się niepowodzeniem.</p>
+<figure>
+<img src="docs/empty-form.png" alt="Pusty formularz" /><figcaption>Pusty formularz</figcaption>
+</figure>
+<p>Twoim zadaniem jest stworzenie pliku <code>algorytmy.js</code>, w którym zaimplementujesz algorytm sortowanie bąbelkowego.</p>
+<p>Aby ułatwić ten cel, przygotowaliśmy plik <a href="https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js"><code>algorytmy.js</code></a>, który możesz wykorzystać jako szablon rozwiązania. Do edycji wystarczy prosty edytor tekstu—taki jak Notatnik (Windows), TextEdit (MacOS), czy gedit (Linux). Możesz użyć również bardziej zaawansowanych edytorów—np. <a href="https://atom.io/">Atom</a> czy <a href="http://www.sublimetext.com/">Sublime Text</a>, które podkreślą składnię JavaScript. Po każdej edycji odśwież otwarty w przeglądarce plik <code>sortowanie.html</code>, tak by zobaczyć zmiany.</p>
+<p>Poniższy film przedstawia jak strona wygląda z kilkoma zaimplementowanymi algorytmami:</p>
+<iframe width="480" height="480" frameborder="0" allowfullscreen
+        src="https://www.youtube.com/embed/hrrjGsfpEwg"></iframe>
+
+<h2 id="szczegóły-interfejsu"><a href="#szczegóły-interfejsu">Szczegóły interfejsu</a></h2>
+<p>Plik <a href="https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js"><code>algorytmy.js</code></a> zawiera trzy przykładowe algorytmy. Nie porządkują one elementów, a jedynie pokazują w jaki sposób na nich operować.</p>
+<p>Po rozwiązaniu zadania, Twój plik <code>algorytmy.js</code> powinien zawierać następujące wywołanie funkcji <code>zarejestrujAlgorytm</code>:</p>
+<pre><code>zarejestrujAlgorytm(
+    &#39;Sortowanie bąbelkowe&#39;,
+    function(rozmiar, porownaj, zamien) {
+        // … Twoja implementacja sortowania bąbelkowego …
+    }
+);</code></pre>
+<p>W implementacji możesz korzystać ze:</p>
+<ul>
+<li>zmiennej <code>rozmiar</code>,</li>
+<li>funkcji <code>porownaj(i, j)</code> oraz</li>
+<li>funkcji <code>zamien(i, j)</code>.</li>
+</ul>
+<p>Zmienna <code>rozmiar</code> określa ile elementów należy posortować. Odpowiada ona polu „Liczba elementów” w formularzu.</p>
+<p><strong>Uwaga</strong>! Elementy są numerowane od zero. Oznacza to, że pierwszy element leży na pozycji o numerze 0, a ostatni na pozycji <code>rozmiar - 1</code>. Próby operowania na elementach spoza tego zakresu będą skutkować błędnym zakończeniem algorytmu.</p>
+<p>Funkcji <code>porownaj(i, j)</code> porównuje element na pozycji <code>i</code> z elementem na pozycji <code>j</code>. Jeżeli element na pozycji <code>i</code> jest mniejszy wynikiem porównania jest -1; jeżeli elementy są równe, wynikiem jest 0; jeżeli element na pozycji <code>i</code> jest większy, wynikiem jest 1. W szczególności oznacza to, że:</p>
+<ul>
+<li><code>porownaj(i, i) == 0</code> oraz</li>
+<li><code>porownaj(i, j) == -porownaj(j, i)</code>.</li>
+</ul>
+<p>No i na koniec, funkcji <code>zamien(i, j)</code> zamienia elementy na pozycji <code>i</code> oraz <code>j</code> miejscami. Funkcja działa poprawnie również, gdy <code>i</code> oraz <code>j</code> są sobie równe.</p>
+<p>Dla przykładu, wyobraźmy sobie, że mamy do czynienia z tablicą <code>[3, 1, 1]</code>. Wówczas:</p>
+<ul>
+<li><code>rozmiar == 3</code>,</li>
+<li><code>porownaj(0, 1) == 1</code> (gdyż <code>3 &gt; 1</code>),</li>
+<li><code>porownaj(1, 2) == 0</code> (gdyż <code>1 == 1</code>),</li>
+<li><code>porownaj(2, 0) == -1</code> (gdyż <code>1 &lt; 3</code>) i jednocześnie</li>
+<li>wywołanie <code>zamien(0, 2)</code> zamieni tablicę do postaci <code>[1, 1, 3]</code>.</li>
+</ul>
+<h2 id="sortowanie-przez-wybór-i-wstawianie"><a href="#sortowanie-przez-wybór-i-wstawianie">Sortowanie przez wybór i wstawianie</a></h2>
+<p>Zanim przystąpisz do implementacji sortowania bąbelkowego, sugerujemy najpierw zaimplementować sortowanie przez wybór oraz sortowanie przez wstawianie. Na filmie załączonym powyżej, są to dwa pierwsze zaprezentowane algorytmy.</p>
+<h3 id="sortowanie-przez-wybór"><a href="#sortowanie-przez-wybór">Sortowanie przez wybór</a></h3>
+<p>Sortowanie przez wybór działa poprzez wielokrotne wyszukiwanie najmniejszego elementu z malejącego „końca” tablicy. Algorytm można opisać następująco:</p>
+<ol type="1">
+<li>Niech <code>i = 0</code>.</li>
+<li>Znajdź najmniejszy element spośród elementów <code>i</code>…<code>rozmiar-1</code> i umieść go na pozycji <code>i</code>. W tym celu:
+<ol type="i">
+<li>Niech <code>j = i</code> oraz <code>min = i</code>.</li>
+<li>Zwiększ <code>j</code> o jeden. Jeżeli <code>j ≥ rozmiar</code>, skocz do kroku 3.</li>
+<li>Jeżeli element na pozycji <code>j</code> jest mniejszy od tego na pozycji <code>min</code>, niech <code>min = j</code>.</li>
+<li>Skocz do kroku ii.</li>
+</ol></li>
+<li>Zamień element na pozycji <code>i</code> z elementem na pozycji <code>min</code>.</li>
+<li>Zwiększ <code>i</code> o jeden. Jeżeli <code>i &lt; rozmiar</code>, skocz do kroku 2.</li>
+</ol>
+<h3 id="sortowanie-przez-wstawianie"><a href="#sortowanie-przez-wstawianie">Sortowanie przez wstawianie</a></h3>
+<p>Sortowanie przez wstawianie działa poprzez krokowe sortowanie coraz to większej tablicy wstawiając element z końca na odpowiednie miejsce (stąd nazwa). Metoda jest często porównywana z sortowaniem kart do gry, gdy bierze się ze stołu po jednej karcie. Algorytm można opisać następująco:</p>
+<ol type="1">
+<li>Niech <code>i = 1</code>.</li>
+<li>Jeżeli <code>i ≥ rozmiar</code>, zakończ algorytm. Tablica jest posortowana.</li>
+<li>Wstaw element na pozycji <code>i</code> na poprawną pozycję spośród elementów <code>0</code>…<code>i</code>. W tym celu:
+<ol type="i">
+<li>Niech <code>j = i</code>.</li>
+<li>Zmniejsz <code>j</code> o jeden. Jeżeli <code>j &lt; 0</code>, skocz do kroku 4.</li>
+<li>Jeżeli element na pozycji <code>j</code> nie jest większy od elementu na pozycji <code>j+1</code>, skocz do kroku 4.</li>
+<li>Zamień elementy na pozycji <code>j</code> oraz <code>j+1</code> miejscami.</li>
+<li>Skocz do kroku ii.</li>
+</ol></li>
+<li>Zwiększ <code>i</code> o jeden.</li>
+<li>Skocz do kroku 2.</li>
+</ol>
+<h2 id="sortowanie-bąbelkowe"><a href="#sortowanie-bąbelkowe">Sortowanie bąbelkowe</a></h2>
+<p>Sortowanie bąbelkowe jest trochę bardziej skomplikowanym algorytmem. Nazwa wywodzi się od porównania do bąbelków powietrza poruszających się w górę w akwarium z wodą.</p>
+<p>Algorytm porównuje ze sobą kolejne pary sąsiadujących ze sobą elementów i zamienia je jeżeli nie są one w odpowiedniej kolejności. Wykonując tę operację na całej tablicy dostatecznie wiele razy powoduje, że elementy stają się uporządkowane.</p>
+<p>Algorytm wygląda następująco:</p>
+<ol type="1">
+<li>Niech <code>n = rozmiar</code>.</li>
+<li>Wykonaj pojedyncze przejście „bąbelkowania”, w tym celu:
+<ol type="i">
+<li>Niech <code>i = 0</code>.</li>
+<li>Zwiększ <code>i</code> o jeden. Jeżeli <code>i ≥ rozmiar</code>, skocz do kroku 3.</li>
+<li>Jeżeli element na pozycji <code>i</code> jest mniejszy od elementu na pozycji <code>i - 1</code>, zamień elementy miejscami.</li>
+<li>Skocz do kroku ii.</li>
+</ol></li>
+<li>Zmniejsz <code>n</code> o jeden. Jeżeli <code>n &gt; 0</code>, skocz do kroku 2.</li>
+</ol>
+<h3 id="optymalizacje"><a href="#optymalizacje">Optymalizacje</a></h3>
+<p>Ale uwaga! Powyżej opisany algorytm można zoptymalizować przyśpieszając jego działanie.</p>
+<ol type="1">
+<li><p>Po każdym kolejnym przejściu wewnętrznej pętli (t.j. „bąbelkowania”), kolejne największe elementy umieszczane są na poprawnej pozycji. Fakt ten można wykorzystać modyfikując przejścia „bąbelkowania” tak, aby zamiast za każdym razem operować na elementach <code>0</code>…<code>rozmiar-1</code>, operowała na elementach z zakresu <code>0</code>…<code>n-1</code>.</p></li>
+<li><p>Algorytm należy dodatkowo zmodyfikować w ten sposób, że powinien on zakończyć działanie jeżeli wewnętrzna pętla nie dokonała żadnych zamian.</p></li>
+</ol>
+<p>Dla przykładu, jeżeli elementy byłyby od razu uporządkowane, implementacja powyższego algorytmu pracowicie porównywałaby ze sobą elementy nie wykonując żadnych zamian miejsc.</p>
+<p>Dopiero po zaimplementowaniu sortowania bąbelkowego z tymi dwoma ulepszeniami, zadanie zostanie uznane za rozwiązane.</p>
+<h2 id="wysyłanie-rozwiązań"><a href="#wysyłanie-rozwiązań">Wysyłanie rozwiązań</a></h2>
+<p>XXX</p>
+<h2 id="dla-ambitnych"><a href="#dla-ambitnych">Dla ambitnych</a></h2>
+<p>Jeżeli zainteresował Cię temat sortowania, zachęcamy do implementacji innych algorytmów takich jak sortowanie szybkie, czy sortowanie przez kopcowanie.</p>
+<p>Niestety z powodu limitacji kodu odpowiedzialnego za animacje, nie wszystkie algorytmy mogą zostać zaimplementowane. Np. sortowanie przez scalanie wymaga dodatkowej tymczasowej tablicy, czego skrypt nie udostępnia, a sortowanie kubełkowe wymaga znajomości wartości elementów.</p>
+</main>
+</body>
+</html>
