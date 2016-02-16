@@ -2,13 +2,18 @@ Start: XXX
 
 Termin nadsyłania rozwiązań: XXX
 
-Jednym z najważniejszych problemów w informatyce jest sortowanie.  Dla
-przykładu, gdy wyszukujesz informacje w Google, wyszukiwarka musi
-najpierw ocenić możliwe wyniki, a potem uporządkować je począwszy od
-tego, który najlepiej pasuje do zadanych kryteriów wyszukiwania.
+Jednym z najważniejszych problemów w informatyce jest
+sortowanie, t.j. ustawienie zadanych elementów w kolejności rosnącej
+lub malejącej (dokładniej w kolejności niemalejącej lub nierosnącej).
 
-Twoim zadaniem będzie zaimplementować jeden z prostszych algorytmów
-sortowania.
+Przykładowo, w dzienniku szkolnym, uczniowie są zazwyczaj posortowani
+według nazwiska począwszy od Anny Andersson, poprzez Ernesta Nemeczeka
+i Ijona Tichecho, aż do Uli Zalewskiej.  W informatyce powiemy, że
+nazwisko Andersson „jest mniejsze” od Nemeczek (gdyż litera A jest
+w alfabecie przed literą N).
+
+Twoim zadaniem będzie zaimplementować sortowanie bąbelkowe, jeden
+z prostszych algorytmów sortowania.
 
 
 ## Zanim przystąpisz do rozwiązywania
@@ -49,6 +54,7 @@ zaimplementowanymi algorytmami:
 
 <iframe width="480" height="480" frameborder="0" allowfullscreen
         src="https://www.youtube.com/embed/hrrjGsfpEwg"></iframe>
+
 
 ## Szczegóły interfejsu
 
