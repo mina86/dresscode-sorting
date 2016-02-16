@@ -70,6 +70,10 @@ nav a, nav a:link, nav a:hover, nav a:active, nav a:focus, nav a:visited {
     border: none;
 }
 
+figure {
+    margin: 1em 0;
+    text-align: center;
+}
 img {
     border: 1px solid #999;
     max-width: 100%;
