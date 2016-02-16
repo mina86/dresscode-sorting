@@ -74,7 +74,7 @@ figure {
     margin: 1em 0;
     text-align: center;
 }
-img {
+figure img {
     border: 1px solid #999;
     max-width: 100%;
 }
@@ -91,6 +91,19 @@ p, li {
     text-justify: distribute;
     text-justify: newspaper;
     line-height: 2em;
+}
+p img {
+    border: 1px solid #999;
+    background: #fff;
+}
+img.horse {
+    width: 40%;
+}
+img.dog {
+    width: 20%;
+}
+img.hedgehog {
+    width: 20%;
 }
 
 h1 {

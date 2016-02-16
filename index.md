@@ -1,19 +1,48 @@
-Start: XXX
+**Start:** 17 lutego 2016
 
-Termin nadsyłania rozwiązań: XXX
+**Termin nadsyłania rozwiązań:** 16 marca 2016
 
-Jednym z najważniejszych problemów w informatyce jest
-sortowanie, t.j. ustawienie zadanych elementów w kolejności rosnącej
-lub malejącej (dokładniej w kolejności niemalejącej lub nierosnącej).
+**Czas, który będzie Ci potrzebny na rozwiązanie całego zadania**: co
+najmniej 8 godzin.
 
-Przykładowo, w dzienniku szkolnym, uczniowie są zazwyczaj posortowani
-według nazwiska począwszy od Anny Andersson, poprzez Ernesta Nemeczeka
-i Ijona Tichecho, aż do Uli Zalewskiej.  W informatyce powiemy, że
-nazwisko Andersson „jest mniejsze” od Nemeczek (gdyż litera A jest
-w alfabecie przed literą N).
+Jednym z najważniejszych zagadnień w informatyce jest sortowanie,
+czyli porządkowanie przedmiotów—rosnąco lub malejąco.
 
-Twoim zadaniem będzie zaimplementować sortowanie bąbelkowe, jeden
-z prostszych algorytmów sortowania.
+Przykładowo—w dzienniku szkolnym uczniowie są zazwyczaj posortowani
+(czyli uporządkowani) według nazwiska:
+
+1. Anielewicz Barbara,
+2. Nemeczek Tomasz,
+3. Tyczyński Zygmunt,
+4. Zalewska Anna
+
+W informatyce powiemy, że nazwisko Anielewicz „jest mniejsze” od
+Nemeczek (gdyż litera A jest w alfabecie przed literą N).
+
+Różne zbiory obiektów (np. ludzi, czy przedmioty) można sortować
+względem róznych kryteriów (np. rozmiaru/wzrostu, nazwy).  Na przykład
+mając trzy zwierzęta:
+
+<p style="margin-left: 2em">Psa: <img class="dog" src="dog.jpg"
+alt="Pies">, konia: <img class="horse" src="horse.jpg" alt="Koń">
+i jeża: <img class="hedgehog" src="hedgehog.jpg" alt="Jeż"></p>
+
+możemy posortować je względem ich wielkości:
+
+<p style="margin-left: 2em"><img class="hedgehog" src="hedgehog.jpg"
+alt="Jeż"> <img class="dog" src="dog.jpg" alt="Pies"> <img
+class="horse" src="horse.jpg" alt="Koń"></p>
+
+albo po nazwie (alfabetycznie):
+
+<p style="margin-left: 2em"><img class="hedgehog" src="hedgehog.jpg"
+alt="Jeż"> <img class="horse" src="horse.jpg" alt="Koń"> <img
+class="dog" src="dog.jpg" alt="Pies"></p>
+
+Istnieje wiele różnych sposobów (algorytmów) sortowania
+obiektów. Twoim zadaniem będzie napisać program, który będzie
+porządkować obiekty przy użyciu sortowania bąbelkowego—jednego
+z łatwiejszych do zrozumienia algorytmów sortowania.
 
 
 ## Zanim przystąpisz do rozwiązywania
@@ -25,6 +54,37 @@ i wypełnij krótki formularz rejestracyjny.  Następnie [powiedz nam coś
 o sobie](https://docs.google.com/a/google.com/forms/d/1jXBF3TUIn83r6SgXRT3dLofvoAJCcSf5tZev6TZfBn0/viewform)
 w krótkiej anonimowej ankiecie.  Ankieta posłuży nam do jak
 najlepszego dostosowania formy DressCode do Twoich preferencji.
+
+
+## Co będzie Ci potrzebne
+
+Program porządkujący „bąbelkowo” będziesz pisać przy użyciu języka
+JavaScript.  Jest to język używany przez każdą przeglądarkę.  Do
+rozwiązania zadania przyda Ci się znajomość jego podstaw.  Aby je
+sobie przyswoić, polecamy Ci skorzystanie z jednego z poniższych
+kursów:
+
+* jeśli znasz język angielski (na poziomie VI klasy szkoły podstawowej
+  powinno wystarczyć), polecamy Ci kurs
+  [CodeCademy](https://www.codecademy.com/learn/javascript)—moduły od
+  1 (Introduction to JavaScript) do 5 (Control Flow);
+
+* jeśli wolisz kurs w języku polskim, polecamy Ci kurs [Khan
+  Academy](https://pl.khanacademy.org/computing/computer-programming/programming)— -
+  sekcje „Podstawy Rysowania”, „Zmienne”, „Bonus: Zmiana rozmiaru za
+  pomocą zmiennych”, „Funkcje”, „Logika i instrukcja if” oraz
+  „Zapętlanie”.  Kurs jest dostępny po polsku—jeśli wyświetla Ci się
+  po angielsku, poszukaj opcji zmiany języka!
+
+**Uwaga! Którykolwiek kurs wybierzesz, powinnaś sobie zarezerwować na
+niego co najmniej 5 godzin.** Tematy tłumaczone w tych kursach są
+bardzo ważne i mogą na początku nie być oczywiste—dlatego uzbrój się
+w cierpliwość i daj sobie troszkę czasu.  Obiecujemy, nie będziesz
+żałować. :-)
+
+Nie będziemy sprawdzać, czy wykonałaś jakiekolwiek zadania
+z kursu. Sugerujemy Ci te kursy, ponieważ będzie potrzebna Ci zawarta
+w nich wiedza.
 
 
 ## Zadanie
@@ -40,30 +100,28 @@ rozpoczęcia demonstracji kończy się niepowodzeniem.
 Twoim zadaniem jest stworzenie pliku `algorytmy.js`, w którym
 zaimplementujesz algorytm sortowanie bąbelkowego.
 
-Aby ułatwić ten cel, przygotowaliśmy plik [`algorytmy.js`](https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js),
-który możesz wykorzystać jako szablon rozwiązania.  Do edycji
-wystarczy prosty edytor tekstu—taki jak Notatnik (Windows), TextEdit
-(MacOS), czy gedit (Linux).  Możesz użyć również bardziej
+Pobierz na swój komputer plik
+[`algorytmy.js`](https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js)—możesz
+wykorzystać jego zawartość w swoim kodzie programu. Do edytowania
+pliku wystarczy prosty edytor tekstu—taki jak Notatnik (Windows),
+TextEdit (MacOS), czy gedit (Linux). Możesz użyć również bardziej
 zaawansowanych edytorów—np. [Atom](https://atom.io/) czy [Sublime
 Text](http://www.sublimetext.com/), które podkreślą składnię
-JavaScript.  Po każdej edycji odśwież otwarty w przeglądarce plik
-`sortowanie.html`, tak by zobaczyć zmiany.
+JavaScript.  Po każdym zapisaniu zmiany w pliku `algoryrytmy.js`
+odśwież otwarty w przeglądarce plik sortowanie.html, tak by zobaczyć
+zmiany.
 
-Poniższy film przedstawia jak strona wygląda z kilkoma
-zaimplementowanymi algorytmami:
+Dalej w instrukcji wyjaśnimy szczegółowo, na czym polegają różne
+algorytmy sortowania. Tymczasem poniższy film przedstawia, jak powinna
+wyglądać strona z kilkoma algorytmami sortowania:
 
 <iframe width="480" height="480" frameborder="0" allowfullscreen
         src="https://www.youtube.com/embed/hrrjGsfpEwg"></iframe>
 
-
-## Szczegóły interfejsu
-
-Plik [`algorytmy.js`](https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js)
-zawiera trzy przykładowe algorytmy.  Nie porządkują one elementów,
-a jedynie pokazują w jaki sposób na nich operować.
-
-Po rozwiązaniu zadania, Twój plik `algorytmy.js` powinien zawierać
-następujące wywołanie funkcji `zarejestrujAlgorytm`:
+Zajrzyj do pliku `algorytmy.js`—zawiera on trzy przykładowe algorytmy.
+Nie porządkują one elementów, a jedynie pokazują w jaki sposób na nich
+operować.  Po rozwiązaniu zadania Twój plik `algorytmy.js` powinien
+zawierać następujące wywołanie funkcji `zarejestrujAlgorytm`:
 
     zarejestrujAlgorytm(
         'Sortowanie bąbelkowe',
@@ -72,7 +130,9 @@ następujące wywołanie funkcji `zarejestrujAlgorytm`:
         }
     );
 
-W implementacji możesz korzystać ze:
+### Dostępne funkcje pomocnicze
+
+W swoim kodzie możesz korzystać ze:
 
 * zmiennej `rozmiar`,
 * funkcji `porownaj(i, j)` oraz
@@ -82,15 +142,15 @@ Zmienna `rozmiar` określa ile elementów należy posortować.  Odpowiada
 ona polu „Liczba elementów” w formularzu.
 
 **Uwaga**! Elementy są numerowane od zero.  Oznacza to, że pierwszy
-element leży na pozycji o numerze 0, a ostatni na pozycji
+element leży na pozycji o numerze `0`, a ostatni na pozycji
 `rozmiar - 1`.  Próby operowania na elementach spoza tego zakresu będą
 skutkować błędnym zakończeniem algorytmu.
 
 Funkcji `porownaj(i, j)` porównuje element na pozycji `i` z elementem
 na pozycji `j`.  Jeżeli element na pozycji `i` jest mniejszy wynikiem
-porównania jest -1; jeżeli elementy są równe, wynikiem jest 0; jeżeli
-element na pozycji `i` jest większy, wynikiem jest 1.  W szczególności
-oznacza to, że:
+porównania jest `-1`; jeżeli elementy są równe, wynikiem jest `0`;
+jeżeli element na pozycji `i` jest większy, wynikiem jest `1`.
+W szczególności oznacza to, że:
 
 * `porownaj(i, i) == 0` oraz
 * `porownaj(i, j) == -porownaj(j, i)`.
@@ -118,9 +178,15 @@ zaprezentowane algorytmy.
 
 ### Sortowanie przez wybór
 
-Sortowanie przez wybór działa poprzez wielokrotne wyszukiwanie
-najmniejszego elementu z malejącego „końca” tablicy.  Algorytm można
-opisać następująco:
+<iframe width="560" height="315" frameborder="0" allowfullscreen
+        src="https://www.youtube.com/embed/Ns4TPTC8whw"></iframe>
+
+Gdy sortujemy przez wybór, wiele razy wyszukujemy (wybieramy)
+najmniejszy element na liście, a następnie przesuwamy go na początek
+listy.  Potem wyszukujemy drugi najmniejszy element, trzeci
+najmniejszy, itd.
+
+Algorytm można opisać następująco:
 
 1. Niech `i = 0`.
 2. Znajdź najmniejszy element spośród elementów `i`…`rozmiar-1`
@@ -135,11 +201,15 @@ opisać następująco:
 
 ### Sortowanie przez wstawianie
 
-Sortowanie przez wstawianie działa poprzez krokowe sortowanie coraz to
-większej tablicy wstawiając element z końca na odpowiednie miejsce
-(stąd nazwa).  Metoda jest często porównywana z sortowaniem kart do
-gry, gdy bierze się ze stołu po jednej karcie.  Algorytm można opisać
-następująco:
+<iframe width="560" height="315" frameborder="0" allowfullscreen
+          src="https://www.youtube.com/embed/ROalU379l3U"></iframe>
+
+Gdy sortujemy przez wstawianie, robimy coś podobnego do porządkowania
+w ręce kart do gry (gdy dobieramy po jednej karcie z talii).  Kolejne
+elementy z ,talii (czyli z końca naszej listy) wstawiamy na
+odpowiednie miejsce ,w ręce (czyli w naszej liście).
+
+Algorytm można opisać następująco:
 
 1. Niech `i = 1`.
 2. Jeżeli `i ≥ rozmiar`, zakończ algorytm.  Tablica jest posortowana.
@@ -157,14 +227,18 @@ następująco:
 
 ## Sortowanie bąbelkowe
 
+<iframe width="560" height="315" frameborder="0" allowfullscreen
+          src="https://www.youtube.com/embed/MtcrEhrt_K0"></iframe>
+
 Sortowanie bąbelkowe jest trochę bardziej skomplikowanym algorytmem.
 Nazwa wywodzi się od porównania do bąbelków powietrza poruszających
 się w górę w akwarium z wodą.
 
-Algorytm porównuje ze sobą kolejne pary sąsiadujących ze sobą
-elementów i zamienia je jeżeli nie są one w odpowiedniej kolejności.
-Wykonując tę operację na całej tablicy dostatecznie wiele razy
-powoduje, że elementy stają się uporządkowane.
+Gdy wykonujemy sortowanie bąbelkowe, porównujemy ze sobą kolejne pary
+sąsiadujących ze sobą elementów.  Jeżeli są one w złej kolejności
+(czyli najpierw większy, potem mniejszy), zamieniamy je miejscami.
+Gdy wykonamy taką zamianę odpowiednio dużo razy, okaże się, że
+uporządkowaliśmy całą listę.
 
 Algorytm wygląda następująco:
 
@@ -197,16 +271,20 @@ przyśpieszając jego działanie.
    implementacja powyższego algorytmu pracowicie porównywałaby ze sobą
    elementy nie wykonując żadnych zamian miejsc.
 
-Dopiero po zaimplementowaniu sortowania bąbelkowego z tymi dwoma
-ulepszeniami, zadanie zostanie uznane za rozwiązane.
+<p><u>Dopiero po zaimplementowaniu sortowania bąbelkowego z tymi dwoma
+ulepszeniami, zadanie zostanie uznane za rozwiązane.</u>
 
 
 ## Wysyłanie rozwiązań
 
-XXX
+Po napisaniu kodu sortowania przez wybór, przez wstawianie i bąbelkowo
+wyślij nam rozwiązanie przy użyciu [tego
+formularza](https://docs.google.com/forms/d/1MkRyLep4CJaef4HZbD93BCmNN8mKKigHdiTCCdRevak/viewform).
+Jeśli nie uda Ci się napisać wszystkich—wyślij nam te, które zdążyłaś
+skończyć.
 
 
-## Dla ambitnych
+## Dla (jeszcze bardziej) ambitnych
 
 Jeżeli zainteresował Cię temat sortowania, zachęcamy do implementacji
 innych algorytmów takich jak sortowanie szybkie, czy sortowanie przez
@@ -217,3 +295,6 @@ wszystkie algorytmy mogą zostać zaimplementowane.  Np. sortowanie
 przez scalanie wymaga dodatkowej tymczasowej tablicy, czego skrypt nie
 udostępnia, a sortowanie kubełkowe wymaga znajomości wartości
 elementów.
+
+Więcej o różnych algorytmach sortowania możesz dowiedzieć się
+[tutaj](https://pl.khanacademy.org/computing/computer-science/algorithms).
