@@ -1,6 +1,6 @@
 html, body {
     color: #000;
-    background: #eee;
+    background: #efe0d2;
     padding: 0;
     margin: 0;
     font-family: Verdana, "Trebuchet MS", Tahoma, Helvetica, sans-serif;
@@ -12,7 +12,13 @@ main {
     margin: 1em auto;
     padding: 1em 2em;
     background: #fff;
-    box-shadow: 5px 5px 5px #ccc;
+    background: rgba(255, 255, 255, 0.80);
+}
+
+@media (min-width: 600px) {
+    body {
+        background: #efe0d2 url(longcat-bg.png) no-repeat bottom right fixed;
+    }
 }
 
 a, a code, a:link, a:link code {
