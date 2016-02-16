@@ -35,7 +35,7 @@ Internet Explorer), zobaczysz prosty formularz, jednak pole „— wybierz
 algorytm —” nie posiada żadnych opcji do wyboru przez co próba
 rozpoczęcia demonstracji kończy się niepowodzeniem.
 
-![Pusty formularz](docs/empty-form.png)
+![Pusty formularz](empty-form.png)
 
 Twoim zadaniem jest stworzenie pliku `algorytmy.js`, w którym
 zaimplementujesz algorytm sortowanie bąbelkowego.
