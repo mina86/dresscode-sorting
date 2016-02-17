@@ -11,9 +11,9 @@ czyli porządkowanie przedmiotów—rosnąco lub malejąco.
 Przykładowo—w dzienniku szkolnym uczniowie są zazwyczaj posortowani
 (czyli uporządkowani) według nazwiska:
 
-1. Anielewicz Barbara,
-2. Nemeczek Tomasz,
-3. Tyczyński Zygmunt,
+1. Anielewicz Barbara
+2. Nemeczek Tomasz
+3. Tyczyński Zygmunt
 4. Zalewska Anna
 
 W informatyce powiemy, że nazwisko Anielewicz „jest mniejsze” od
@@ -23,7 +23,7 @@ Różne zbiory obiektów (np. ludzi, czy przedmioty) można sortować
 względem róznych kryteriów (np. rozmiaru/wzrostu, nazwy).  Na przykład
 mając trzy zwierzęta:
 
-<p style="margin-left: 2em">Psa: <img class="dog" src="dog.jpg"
+<p style="margin-left: 2em">psa: <img class="dog" src="dog.jpg"
 alt="Pies">, konia: <img class="horse" src="horse.jpg" alt="Koń">
 i jeża: <img class="hedgehog" src="hedgehog.jpg" alt="Jeż"></p>
 
@@ -108,7 +108,7 @@ TextEdit (MacOS), czy gedit (Linux). Możesz użyć również bardziej
 zaawansowanych edytorów—np. [Atom](https://atom.io/) czy [Sublime
 Text](http://www.sublimetext.com/), które podkreślą składnię
 JavaScript.  Po każdym zapisaniu zmiany w pliku `algoryrytmy.js`
-odśwież otwarty w przeglądarce plik sortowanie.html, tak by zobaczyć
+odśwież otwarty w przeglądarce plik `sortowanie.html`, tak by zobaczyć
 zmiany.
 
 Dalej w instrukcji wyjaśnimy szczegółowo, na czym polegają różne
@@ -138,24 +138,24 @@ W swoim kodzie możesz korzystać ze:
 * funkcji `porownaj(i, j)` oraz
 * funkcji `zamien(i, j)`.
 
-Zmienna `rozmiar` określa ile elementów należy posortować.  Odpowiada
+Zmienna `rozmiar` określa ile obiektów należy posortować.  Odpowiada
 ona polu „Liczba elementów” w formularzu.
 
 **Uwaga**! Elementy są numerowane od zero.  Oznacza to, że pierwszy
-element leży na pozycji o numerze `0`, a ostatni na pozycji
-`rozmiar - 1`.  Próby operowania na elementach spoza tego zakresu będą
-skutkować błędnym zakończeniem algorytmu.
+obiekt leży na pozycji o numerze `0`, a ostatni na pozycji `rozmiar -
+1`.  Próby operowania na elementach spoza tego zakresu będą skutkować
+błędnym zakończeniem algorytmu.
 
 Funkcji `porownaj(i, j)` porównuje element na pozycji `i` z elementem
-na pozycji `j`.  Jeżeli element na pozycji `i` jest mniejszy wynikiem
-porównania jest `-1`; jeżeli elementy są równe, wynikiem jest `0`;
-jeżeli element na pozycji `i` jest większy, wynikiem jest `1`.
+na pozycji `j`.  Jeżeli ten na pozycji `i` jest mniejszy, wynikiem
+porównania jest `-1`; jeżeli obiekty są sobie równe, wynikiem jest
+`0`; jeżeli element na pozycji `i` jest większy, wynikiem jest `1`.
 W szczególności oznacza to, że:
 
 * `porownaj(i, i) == 0` oraz
 * `porownaj(i, j) == -porownaj(j, i)`.
 
-No i na koniec, funkcji `zamien(i, j)` zamienia elementy na pozycji
+No i na koniec, funkcja `zamien(i, j)` zamienia elementy na pozycji
 `i` oraz `j` miejscami.  Funkcja działa poprawnie również, gdy `i`
 oraz `j` są sobie równe.
 
@@ -206,8 +206,8 @@ Algorytm można opisać następująco:
 
 Gdy sortujemy przez wstawianie, robimy coś podobnego do porządkowania
 w ręce kart do gry (gdy dobieramy po jednej karcie z talii).  Kolejne
-elementy z ,talii (czyli z końca naszej listy) wstawiamy na
-odpowiednie miejsce ,w ręce (czyli w naszej liście).
+elementy z talii (czyli z końca naszej listy) wstawiamy na odpowiednie
+miejsce w ręce (czyli w naszej liście).
 
 Algorytm można opisać następująco:
 
@@ -265,11 +265,9 @@ przyśpieszając jego działanie.
 
 2. Algorytm należy dodatkowo zmodyfikować w ten sposób, że powinien on
    zakończyć działanie jeżeli wewnętrzna pętla nie dokonała żadnych
-   zamian.
-
-   Dla przykładu, jeżeli elementy byłyby od razu uporządkowane,
-   implementacja powyższego algorytmu pracowicie porównywałaby ze sobą
-   elementy nie wykonując żadnych zamian miejsc.
+   zamian.  Dla przykładu, jeżeli elementy byłyby od razu
+   uporządkowane, implementacja powyższego algorytmu pracowicie
+   porównywałaby ze sobą elementy nie wykonując żadnych zamian miejsc.
 
 <p><u>Dopiero po zaimplementowaniu sortowania bąbelkowego z tymi dwoma
 ulepszeniami, zadanie zostanie uznane za rozwiązane.</u>
