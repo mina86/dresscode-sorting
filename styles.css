@@ -3,7 +3,6 @@ html, body {
     background: #efe0d2;
     padding: 0;
     margin: 0;
-    font-family: Verdana, "Trebuchet MS", Tahoma, Helvetica, sans-serif;
     text-rendering: optimizelegibility;
 }
 
@@ -125,13 +124,8 @@ h3 {
 
 
 code {
-    font-family: "Input Sans", Verdana, "Trebuchet MS", Tahoma, Helvetica, sans-serif;
     font-variant-numeric: lining-nums proportional-nums slashed-zero;
     color: #363;
-}
-p code, li code {
-    padding: 0 0.25em;
-    background: #eee;
 }
 pre {
     margin: 1em 3em;
