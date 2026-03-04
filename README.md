@@ -1,3 +1,3 @@
-# DressCode PL: Sortowanie
+![Sorting Demo](images/demo.gif)
 
-Zobacz http://mina86.github.io/dresscode-sorting/
+→ http://mina86.github.io/dresscode-sorting/
