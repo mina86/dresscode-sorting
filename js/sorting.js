@@ -1,51 +1,7 @@
-<!DOCTYPE html>
-<title>Sortowanie</title>
-<meta charset="utf-8">
-<style>
-  html, body {
-    color: #000;
-    background: #efe0d2;
-    margin: 0; padding: 0;
-  }
-  #form {
-    padding: 1em 2em;
-    background: #fff;
-  }
-  #num {
-    width: 3em;
-  }
-  label, select, #go {
-    margin: 0 1em;
-  }
-  #status {
-    margin: 1em;
-  }
-  #container {
-    position: relative;
-    margin: 1em;
-  }
-  #container div {
-    position: absolute;
-    width: 100%;
-  }
-</style>
-
-<form id=form>
-  <label for=num>
-    Liczba elementów:
-    <input type=number id=num name=num min=2 max=20 value=5 step=1>
-  </label>
-  <select id=algo name=algo required>
-    <option value="">— wybierz algorytm —
-  </select>
-  <input type=submit value="Rozpocznij demonstrację" id=go>
-  <p id=status>&nbsp;</p>
-</form>
-<div id=container></div>
-<script>
 /**
  * Sorting algorithms demonstration framework.
- * Copyright Google, Inc. All rights reserved.
+ * Copyright 2016 Google, Inc.
+ * Copyright 2026 Michał Nazarewicz <mina86@mina86.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License.  You may obtain a copy
@@ -60,7 +16,56 @@
  * the License.
  */
 
-var zarejestrujAlgorytm = (function() {
+
+/**
+ * Formats a number of comparisons and swaps status shown in front of the status
+ * messages.  The purpose of this function is to provide localisation of the
+ * messages.  To localise the algorithm, bind a new function to the
+ * `formatCountsStats` symbol.
+ *
+ * @param {number} comparisons Number of comparisons performed.
+ * @param {number} swaps Number of swaps performed.
+ */
+let formatCountsStats = (comparisons, swaps) => {
+	return 'Number of comparisons: ' + comparisons +
+		', swaps: ' + swaps;
+};
+
+
+/**
+ * Generates the the text content of the #status HTML element.  The purpose of
+ * this function is to provide localisation of the messages.  To localise the
+ * algorithm, assign a new function to the `getStatusMessage` binding.
+ *
+ * @param {string} msgId Id of the message to display.
+ * @param {{cmp:number, swap:number}=} opt_counts Counters specifying number of
+ *     comparisons and swaps performed.  If given, the generated text will
+ *     include the counts.
+ */
+/* This isn’t the best way to do it, but it’s a quick and easy way.  Instead we
+   at least should be using an enumeration of message identifiers. */
+let getStatusMessage = msgId => {
+	switch (msgId) {
+	case 'elementsSorted':
+		return 'Elements have been sorted';
+	case 'elementsNotSorted':
+		return 'Elements have NOT been sorted correctly';
+	case 'badElementCount':
+		return 'Invalid number of elements';
+	case 'infLoopError':
+		return 'Algorithm performed too many operations. It looks ' +
+			'like an infinite loop.';
+	case 'indexErrorStart':
+		return 'Algorithm attempted to access element at index ';
+	case 'indexErrorEnd':
+		return ', which is out of bounds.';
+	case 'exceptionCaught':
+		return 'Error while executing the algorithm';
+	}
+};
+
+
+const registerAlgorithm = (function() {
 	/** URL of the image of the head.  @const {string} */
 	var HEAD_URL = 'data:image/png;base64,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';
 	/** URL of the image of the body.  @const {string} */
@@ -134,18 +139,25 @@ var zarejestrujAlgorytm = (function() {
 
 	/**
 	 * Updates the text content of the #status HTML element.
-	 * @param {string} text Text to put in the status.
+	 * @param {string} msgId Id of the message to display.
+	 * @param {string=} opt_text If present, added at the end of the
+	 *     message.  If `msgId` is not empty, `': '` is added between the
+	 *     message and this text.
 	 * @param {{cmp:number, swap:number}=} opt_cnt Counters specifying
 	 *     number of comparisons and swaps performed.  If given, the status
 	 *     line will include the counts.
 	 */
-	var setStatus = function(text, opt_cnt) {
-		if (opt_cnt) {
-			text = 'Liczba porównań: ' + opt_cnt['cmp'] +
-				', zamian: ' + opt_cnt['swap'] +
-				(text ? '. ' + text : '');
-		}
-
+	var setStatus = function(msgId, opt_text, opt_cnt) {
+		const prefix = opt_cnt
+		      ? formatCountsStats(opt_cnt['cmp'], opt_cnt['swap']) : '';
+		const message = msgId
+		      ? getStatusMessage(msgId) || ('{msgId:' + msgId + '}')
+		      : '';
+		const text = prefix +
+		      (prefix && (message || opt_text) ? '. ' : '') +
+		      message +
+		      (opt_text && message ? ': ' : '') +
+		      (opt_text || '');
 		if (status.firstChild) {
 			status.firstChild.nodeValue = text;
 		} else {
@@ -201,14 +213,10 @@ var zarejestrujAlgorytm = (function() {
 	};
 
 	/** Error indicating too many operations were executed. */
-	var InfLoopError = function() {
-		this.message = 'Algorytm wykonał zbyt dużo operacji. Wygląda ' +
-			'to na nieskończoną pętlę.';
-	};
+	var InfLoopError = function() {}
 	/** Error indicating index out of bounds was accessed. */
 	var IndexError = function(idx) {
-		this.message = 'Algorytm próbował operować na elemencie o ' +
-			'indeksie ' + idx + ', który jest poza tablicą.';
+		this.index = idx;
 	};
 
 	/**
@@ -379,7 +387,7 @@ var zarejestrujAlgorytm = (function() {
 		    win.oRequestAnimationFrame ||
 		    win.msRequestAnimationFrame;
 
-		setStatus('', cnt);
+		setStatus('', null, cnt);
 
 		var callback = function(ts) {
 			ts /= 1000;
@@ -394,7 +402,7 @@ var zarejestrujAlgorytm = (function() {
 
 				if (op) {
 					++cnt[op.type];
-					setStatus('', cnt);
+					setStatus('', null, cnt);
 				}
 
 				if (++idx >= ops.length) {
@@ -423,9 +431,10 @@ var zarejestrujAlgorytm = (function() {
 		       arr[i - 1][VALUE_SYMBOL] <= arr[i][VALUE_SYMBOL]) {
 			++i;
 		}
-		setStatus(i == arr.length ? 'Elementy posortowane' :
-			 'Elementy NIE zostały poprawnie posortowane',
-			 cnt);
+		setStatus(i == arr.length ? 'elementsSorted' :
+			  'elementsNotSorted',
+			  null,
+			  cnt);
 	};
 
 	doc.getElementById(FORM_ID).onsubmit = function() {
@@ -438,7 +447,7 @@ var zarejestrujAlgorytm = (function() {
 		var str = doc.getElementById(NUM_ELEMENTS_ID).value;
 		var num = parseInt(str, 10);
 		if (num != num || num < 2 || num > 20) {
-			setStatus('Nieprawidłowa liczba elementów: ' + str);
+			setStatus('Nieprawidłowa liczba elementów', str);
 			doc.getElementById(NUM_ELEMENTS_ID).focus();
 			return false;
 		}
@@ -472,11 +481,16 @@ var zarejestrujAlgorytm = (function() {
 		}
 		catch (e) {
 			setDisabled(false);
-			if (e instanceof InfLoopError ||
-			    e instanceof IndexError) {
-				setStatus(e.message);
+			if (e instanceof InfLoopError) {
+				setStatus('infLoopError')
+			} else if (e instanceof IndexError) {
+				const text =
+				      getStatusMessage('indexErrorStart') +
+				      e.index +
+				      getStatusMessage('indexErrorEnd');
+				setStatus('', text);
 			} else {
-				setStatus('' + e);
+				setStatus('exceptionCaught', '' + e);
 			}
 		}
 		return false;
@@ -495,5 +509,5 @@ var zarejestrujAlgorytm = (function() {
 		doc.getElementById(SELECT_ID).appendChild(opt);
 	};
 })();
-</script>
-<script src="algorytmy.js"></script>
+
+const zarejestrujAlgorytm = registerAlgorithm;

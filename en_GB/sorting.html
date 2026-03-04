@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta charset=UTF-8>
+<title>Sorting</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    color: #000;
+    background: #efe0d2;
+    color-theme: light;
+  }
+  #form {
+    padding: 1em 2em;
+    background: #fff;
+  }
+  #num {
+    width: 3em;
+  }
+  label, select, #go {
+    margin: 0 1em;
+  }
+  #status {
+    margin: 1em;
+  }
+  #container {
+    position: relative;
+    margin: 1em;
+  }
+  #container div {
+    position: absolute;
+    width: 100%;
+  }
+</style>
+
+<form id=form>
+  <label for=num>
+    Number of elements:
+    <input type=number id=num name=num min=2 max=20 value=5 step=1>
+  </label>
+  <select id=algo name=algo required>
+    <option value="">— choose an algorithm —
+  </select>
+  <input type=submit value="Begin demonstration" id=go>
+  <p id=status>&nbsp;</p>
+</form>
+<div id=container></div>
+<script src=../js/sorting.js></script>
+<script src="algorithms.js"></script>
