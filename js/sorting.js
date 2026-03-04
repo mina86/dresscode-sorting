@@ -329,7 +329,7 @@ const registerAlgorithm = (function() {
 		case 'swap':
 			var start = catYPosition(op.i);
 
-			if (op.i == op.j && t >= 0.5) {
+			if (op.i == op.j && t >= 0.375) {
 				a.style.top = px(start);
 				a.style.left = '0';
 				return 0.5;
@@ -337,14 +337,15 @@ const registerAlgorithm = (function() {
 
 			var end = catYPosition(op.j);
 
-			if (t >= 1) {
+			if (t >= 0.75) {
 				a.style.top = px(end);
 				b.style.top = px(start);
 				a.style.left = b.style.left = '0';
 				arr[op.i] = b;
 				arr[op.j] = a;
-				return 1;
+				return 0.75;
 			}
+			t /= 0.75;
 
 			if (op.i == op.j) {
 				t *= 2;
@@ -390,7 +391,7 @@ const registerAlgorithm = (function() {
 		setStatus('', null, cnt);
 
 		var callback = function(ts) {
-			ts /= 1000;
+			ts *= arr.length > 6 ? arr.length / 6000 : 0.001;
 			start = start || ts;
 			while (true) {
 				var op = idx < 0 ? null : ops[idx];
@@ -446,7 +447,7 @@ const registerAlgorithm = (function() {
 		// Parse number of elements
 		var str = doc.getElementById(NUM_ELEMENTS_ID).value;
 		var num = parseInt(str, 10);
-		if (num != num || num < 2 || num > 20) {
+		if (num != num || num < 2 || num > 32) {
 			setStatus('Nieprawidłowa liczba elementów', str);
 			doc.getElementById(NUM_ELEMENTS_ID).focus();
 			return false;
