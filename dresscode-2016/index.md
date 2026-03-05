@@ -1,6 +1,7 @@
-**Start:** 17 lutego 2016
-
-**Termin nadsyłania rozwiązań:** 16 marca 2016
+---
+lang: pl-PL
+title: "DressCode: Sortowanie"
+---
 
 **Czas, który będzie Ci potrzebny na rozwiązanie całego zadania**: co
 najmniej 8 godzin.
@@ -45,17 +46,6 @@ porządkować obiekty przy użyciu sortowania bąbelkowego—jednego
 z łatwiejszych do zrozumienia algorytmów sortowania.
 
 
-## Zanim przystąpisz do rozwiązywania
-
-Jeżeli jeszcze tego nie zrobiłaś, na stronie
-[DressCode](https://events.withgoogle.com/dresscode/) kliknij przycisk
-„[Zarejestruj się](https://events.withgoogle.com/dresscode/registrations/new/)”
-i wypełnij krótki formularz rejestracyjny.  Następnie [powiedz nam coś
-o sobie](https://docs.google.com/a/google.com/forms/d/1jXBF3TUIn83r6SgXRT3dLofvoAJCcSf5tZev6TZfBn0/viewform)
-w krótkiej anonimowej ankiecie.  Ankieta posłuży nam do jak
-najlepszego dostosowania formy DressCode do Twoich preferencji.
-
-
 ## Co będzie Ci potrzebne
 
 Program porządkujący „bąbelkowo” będziesz pisać przy użyciu języka
@@ -89,7 +79,7 @@ w nich wiedza.
 
 ## Zadanie
 
-Pobierz na swój komputer plik [`sortowanie.html`](https://github.com/mina86/dresscode-sorting/raw/master/sortowanie.html).
+Pobierz na swój komputer plik [`sortowanie.html`](https://codeberg.org/mina86/dresscode-sorting/src/tag/dresscode-2016/sortowanie.html).
 Jeżeli otworzysz ten plik w przeglądarce (np. Chrome, Firefox, Safari,
 Internet Explorer), zobaczysz prosty formularz, jednak pole „— wybierz
 algorytm —” nie posiada żadnych opcji do wyboru przez co próba
@@ -101,7 +91,7 @@ Twoim zadaniem jest stworzenie pliku `algorytmy.js`, w którym
 zaimplementujesz algorytm sortowanie bąbelkowego.
 
 Pobierz na swój komputer plik
-[`algorytmy.js`](https://github.com/mina86/dresscode-sorting/raw/master/algorytmy.js)—możesz
+[`algorytmy.js`](https://codeberg.org/mina86/dresscode-sorting/src/tag/dresscode-2016/algorytmy.js)—możesz
 wykorzystać jego zawartość w swoim kodzie programu. Do edytowania
 pliku wystarczy prosty edytor tekstu—taki jak Notatnik (Windows),
 TextEdit (MacOS), czy gedit (Linux). Możesz użyć również bardziej
@@ -115,8 +105,10 @@ Dalej w instrukcji wyjaśnimy szczegółowo, na czym polegają różne
 algorytmy sortowania. Tymczasem poniższy film przedstawia, jak powinna
 wyglądać strona z kilkoma algorytmami sortowania:
 
-<iframe width="480" height="480" frameborder="0" allowfullscreen
-        src="https://www.youtube.com/embed/hrrjGsfpEwg"></iframe>
+<iframe title="Demonstracja algorytmów sortowania"
+        src="https://alugha.com/embed/web-player?v=390313e0-17f7-11f1-bc76-9f5a655b0362&color=%23efe0d2"
+        width="480" height="480" frameborder="0" allowfullscreen
+        allow="fullscreen;picture-in-picture"></iframe>
 
 Zajrzyj do pliku `algorytmy.js`—zawiera on trzy przykładowe algorytmy.
 Nie porządkują one elementów, a jedynie pokazują w jaki sposób na nich
@@ -146,7 +138,7 @@ obiekt leży na pozycji o numerze `0`, a ostatni na pozycji `rozmiar -
 1`.  Próby operowania na elementach spoza tego zakresu będą skutkować
 błędnym zakończeniem algorytmu.
 
-Funkcji `porownaj(i, j)` porównuje element na pozycji `i` z elementem
+Funkcja `porownaj(i, j)` porównuje element na pozycji `i` z elementem
 na pozycji `j`.  Jeżeli ten na pozycji `i` jest mniejszy, wynikiem
 porównania jest `-1`; jeżeli obiekty są sobie równe, wynikiem jest
 `0`; jeżeli element na pozycji `i` jest większy, wynikiem jest `1`.
@@ -178,8 +170,10 @@ zaprezentowane algorytmy.
 
 ### Sortowanie przez wybór
 
-<iframe width="560" height="315" frameborder="0" allowfullscreen
-        src="https://www.youtube.com/embed/Ns4TPTC8whw"></iframe>
+<iframe title="Select-sort with Gypsy folk dance"
+        src="https://www.youtube.com/embed/Ns4TPTC8whw"
+        width="560" height="315"  frameborder="0" allowfullscreen
+        allow="fullscreen;picture-in-picture"></iframe>
 
 Gdy sortujemy przez wybór, wiele razy wyszukujemy (wybieramy)
 najmniejszy element na liście, a następnie przesuwamy go na początek
@@ -201,8 +195,10 @@ Algorytm można opisać następująco:
 
 ### Sortowanie przez wstawianie
 
-<iframe width="560" height="315" frameborder="0" allowfullscreen
-          src="https://www.youtube.com/embed/ROalU379l3U"></iframe>
+<iframe title="Insert-sort with Romanian folk dance"
+        src="https://www.youtube.com/embed/ROalU379l3U"
+        width="560" height="315" frameborder="0" allowfullscreen
+        allow="fullscreen;picture-in-picture"></iframe>
 
 Gdy sortujemy przez wstawianie, robimy coś podobnego do porządkowania
 w ręce kart do gry (gdy dobieramy po jednej karcie z talii).  Kolejne
@@ -227,8 +223,10 @@ Algorytm można opisać następująco:
 
 ## Sortowanie bąbelkowe
 
-<iframe width="560" height="315" frameborder="0" allowfullscreen
-          src="https://www.youtube.com/embed/MtcrEhrt_K0"></iframe>
+<iframe title="Bubble-sort with Hungarian (“Csángó”) folk dance"
+        src="https://www.youtube.com/embed/lyZQPjUT5B4"
+        width="560" height="315" frameborder="0" allowfullscreen
+        allow="fullscreen;picture-in-picture"></iframe>
 
 Sortowanie bąbelkowe jest trochę bardziej skomplikowanym algorytmem.
 Nazwa wywodzi się od porównania do bąbelków powietrza poruszających
@@ -268,18 +266,6 @@ przyśpieszając jego działanie.
    zamian.  Dla przykładu, jeżeli elementy byłyby od razu
    uporządkowane, implementacja powyższego algorytmu pracowicie
    porównywałaby ze sobą elementy nie wykonując żadnych zamian miejsc.
-
-<p><u>Dopiero po zaimplementowaniu sortowania bąbelkowego z tymi dwoma
-ulepszeniami, zadanie zostanie uznane za rozwiązane.</u>
-
-
-## Wysyłanie rozwiązań
-
-Po napisaniu kodu sortowania przez wybór, przez wstawianie i bąbelkowo
-wyślij nam rozwiązanie przy użyciu [tego
-formularza](https://docs.google.com/forms/d/1MkRyLep4CJaef4HZbD93BCmNN8mKKigHdiTCCdRevak/viewform).
-Jeśli nie uda Ci się napisać wszystkich—wyślij nam te, które zdążyłaś
-skończyć.
 
 
 ## Dla (jeszcze bardziej) ambitnych
