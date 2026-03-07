@@ -15,5 +15,19 @@
     <li lang=en><a href="en_GB/sorting.html">Visualisation of sorting algorithms</a>
     <li lang=pl><a href="pl_PL/sortowanie.html">Wizualizacja algorytmów sortowania</a>
     <li lang=pl><a href="dresscode-2016/index.html">Opis zadania z DressCode 2016</a>
+    <li lang=en><a href="https://mina86.com/2026/dresscode-sorting/">Post about this script</a>
   </ul>
+
+  <script>
+if (/^pl/.test(navigator.language || navigator.userLanguage)) {
+	document.documentElement.setAttribute('lang', 'pl');
+	document.head.querySelector('title').textContent =
+		document.querySelector('h1').textContent =
+			'DressCode: Sortowanie';
+	(el => {
+		el.setAttribute('lang', 'pl');
+		el.firstChild.textContent = 'Post na temat tego skryptu';
+	})(document.querySelector('li:last-child'));
+}
+  </script>
 </main>
